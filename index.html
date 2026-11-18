@@ -65,8 +65,37 @@ p{margin:0}
 .announce .wrap{display:flex;align-items:center;justify-content:center;gap:16px;padding-block:9px;flex-wrap:wrap;text-align:center}
 .announce a{font-size:11px;text-transform:uppercase;border:1px solid #f2f4f5;border-radius:var(--pill);padding:4px 12px;text-decoration:none}
 .announce a:hover{background:#f2f4f5;color:var(--black)}
-header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-header.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
+/* cabeçalho em cápsula flutuante */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding:12px max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px));height:0;overflow:visible;transition:transform .45s var(--ease,cubic-bezier(.2,.8,.2,1))}
+header.nav.hide{transform:translateY(-120%)}
+.nav-shell{max-width:1180px;margin:0 auto;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border:1px solid color-mix(in srgb,var(--line) 85%,transparent);border-radius:32px;transition:box-shadow .3s,background-color .3s,border-radius .3s}
+header.nav.scrolled .nav-shell{background:color-mix(in srgb,var(--bg) 90%,transparent);box-shadow:0 14px 40px -18px rgba(13,15,16,.28)}
+.nav-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;height:64px;padding:0 10px 0 22px;transition:height .3s}
+header.nav.scrolled .nav-bar{height:58px}
+.nav-bar .logo img{height:36px;transition:height .3s}
+header.nav.scrolled .nav-bar .logo img{height:32px}
+.navlinks{position:relative;display:flex;gap:2px;background:var(--soft);border-radius:var(--pill);padding:4px}
+.navlinks a{position:relative;z-index:1;font-size:12px;font-weight:500;text-transform:uppercase;text-decoration:none;color:var(--ink-2);padding:9px 14px;border-radius:var(--pill);transition:color .25s}
+.navlinks a:hover,.navlinks a.on{color:var(--ink)}
+.nav-ind{position:absolute;z-index:0;top:4px;bottom:4px;left:0;width:0;border-radius:var(--pill);background:var(--bg);box-shadow:0 1px 2px rgba(0,0,0,.08),0 0 0 1px var(--line);opacity:0;transition:left .45s var(--ease,ease),width .45s var(--ease,ease),opacity .25s}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-actions .btn{padding:12px 20px}
+.nav-live{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-2);white-space:nowrap}
+.nav-live i{width:8px;height:8px;border-radius:50%;background:#1fbf75;box-shadow:0 0 0 0 rgba(31,191,117,.55);animation:live 2s infinite}
+@keyframes live{70%{box-shadow:0 0 0 7px rgba(31,191,117,0)}100%{box-shadow:0 0 0 0 rgba(31,191,117,0)}}
+.menu-btn{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--bg);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.menu-btn i{display:block;width:16px;height:1.5px;background:var(--ink);transition:transform .3s var(--ease,ease)}
+.menu-btn[aria-expanded="true"] i:first-child{transform:translateY(3.25px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] i:last-child{transform:translateY(-3.25px) rotate(-45deg)}
+.nav-menu{display:grid;gap:2px;padding:6px 14px 18px}
+.nav-menu[hidden]{display:none}
+.nav-menu a:not(.btn){font-size:20px;font-weight:600;letter-spacing:-.02em;text-decoration:none;padding:12px 8px;border-top:1px solid var(--line)}
+.nav-menu .btn{justify-content:center;margin-top:10px}
+.nav-menu-foot{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
+header.nav.open .nav-shell{border-radius:28px;background:color-mix(in srgb,var(--bg) 96%,transparent)}
+@media (max-width:1180px){.nav-live{display:none}}
+@media (max-width:1080px){.menu-btn{display:inline-flex}}
+@media (max-width:600px){.nav-actions .btn{display:none}.nav-bar{padding-left:18px}}
 .logo{display:flex;align-items:center;gap:3px;text-decoration:none;color:var(--ink)}
 .logo .word{font-family:var(--brand);font-weight:700;font-size:15px;line-height:.82;letter-spacing:-.02em}
 .logo svg{width:28px;height:28px;margin-top:6px}
@@ -75,13 +104,13 @@ footer .logo img{height:56px}
 .navlinks{display:flex;gap:26px}
 .navlinks a{font-size:13px;text-transform:uppercase;text-decoration:none;color:var(--ink)}
 .navlinks a:hover{color:var(--accent-deep)}
-.nav .row .btn{padding:11px 20px}
+
 
 /* manchas de gradiente (atmosfera Monad) */
 .wash{position:absolute!important;border-radius:50%;background:radial-gradient(closest-side,var(--c) 0%,color-mix(in srgb,var(--c) 55%,transparent) 45%,transparent 100%);opacity:.75;pointer-events:none;z-index:0!important}
 
 /* hero */
-.hero{position:relative;padding-block:clamp(56px,8vw,104px) 40px;overflow:hidden}
+.hero{position:relative;padding-block:calc(88px + clamp(24px,5vw,64px)) 40px;overflow:hidden}
 .hero .head{position:relative;z-index:1;gap:24px;margin-bottom:0}
 .tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:var(--pill);padding:7px 14px;font-size:12px;text-transform:uppercase;letter-spacing:.04em;background:var(--bg);justify-self:start;width:max-content;max-width:100%}
 .center .tag,.cta .tag{justify-self:center}
@@ -277,7 +306,12 @@ footer{padding-block:40px 32px}
 .foot a{text-decoration:none;color:var(--ink-2)}
 .foot a:hover{color:var(--ink)}
 .foot p{color:var(--ink-2);font-size:14px;max-width:34ch;margin-top:18px}
-.legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:48px;padding-top:22px;font-size:12px;color:var(--muted)}
+.legal{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:48px;padding-top:22px;font-size:12px;color:var(--muted)}
+.devmais{display:inline-flex;align-items:center;gap:10px}
+.devmais a{display:inline-flex;color:var(--ink);text-decoration:none}
+.devmais a:hover{color:var(--accent-deep)}
+.devmais img{height:20px;width:auto;transition:opacity .2s}
+.devmais a:hover img{opacity:.75}
 
 /* responsivo */
 @media (max-width:1080px){
@@ -305,7 +339,7 @@ footer{padding-block:40px 32px}
   .foot{grid-template-columns:1fr 1fr}
 }
 @media (max-width:600px){
-  .nav .row .btn-ghost{display:none}
+
   .bento{grid-template-columns:1fr}
   .card.tall{grid-column:auto}
   .fails{grid-template-columns:1fr}
@@ -371,7 +405,7 @@ footer{padding-block:40px 32px}
 @media (min-width:900px) and (min-height:720px){
   .pin{height:calc(100vh + 60vh)}
   .pin__fixo{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;align-content:center}
-  .pin .hero{padding-block:84px 16px;overflow:visible}
+  .pin .hero{padding-block:100px 16px;overflow:visible}
   .pin .hero-bg{inset:-80px 0 0}
   .pin .pipe{margin-top:44px}
 }
@@ -414,28 +448,36 @@ footer{padding-block:40px 32px}
   </div>
 </div>
 
-<div class="announce">
-  <div class="wrap">
-    <span>Plantão técnico 24 horas, 7 dias por semana<span class="hide-sm"> · Fortaleza e região</span></span>
-    <a href="https://wa.me/5585997604444" target="_blank" rel="noopener">Chamar no WhatsApp</a>
-  </div>
-</div>
 
-<header class="nav">
-  <div class="wrap">
-    <a class="logo" href="#topo" aria-label="Suporte+ início">
-      <img src="img/logo-suporte.png" alt="Suporte+" width="773" height="538">
-    </a>
-    <nav class="navlinks" aria-label="Principal">
+<header class="nav" id="nav">
+  <div class="nav-shell" id="navShell">
+    <div class="nav-bar">
+      <a class="logo" href="#topo" aria-label="Suporte+ início">
+        <img src="img/logo-suporte.png" alt="Suporte+" width="773" height="538">
+      </a>
+      <nav class="navlinks" id="navLinks" aria-label="Principal">
+        <span class="nav-ind" id="navInd" aria-hidden="true"></span>
+        <a href="#solucoes">Soluções</a>
+        <a href="#quem-somos">Quem somos</a>
+        <a href="#depoimentos">Clientes</a>
+        <a href="#planos">Planos</a>
+        <a href="#servicos-online">Serviços online</a>
+      </nav>
+      <div class="nav-actions">
+        <span class="nav-live"><i></i>Plantão 24/7</span>
+        <a class="btn btn-accent" href="https://wa.me/5585997604444" target="_blank" rel="noopener">Falar com especialista ▸</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Abrir menu"><i></i><i></i></button>
+      </div>
+    </div>
+    <div class="nav-menu" id="navMenu" hidden>
       <a href="#solucoes">Soluções</a>
       <a href="#quem-somos">Quem somos</a>
       <a href="#depoimentos">Clientes</a>
       <a href="#planos">Planos</a>
       <a href="#servicos-online">Serviços online</a>
-    </nav>
-    <div class="row">
-      <a class="btn btn-ghost" href="#planos">Ver planos</a>
+      <a href="#faq">Perguntas frequentes</a>
       <a class="btn btn-accent" href="https://wa.me/5585997604444" target="_blank" rel="noopener">Falar com especialista ▸</a>
+      <span class="nav-menu-foot">(85) 9 9760-4444 · Fortaleza e região</span>
     </div>
   </div>
 </header>
@@ -767,7 +809,7 @@ footer{padding-block:40px 32px}
       <div><h4>Serviços</h4><ul><li><a href="#planos">Planos de suporte</a></li><li><a href="#solucoes">Soluções</a></li><li><a href="#servicos-online">Serviços online</a></li></ul></div>
       <div><h4>Contato</h4><ul><li>atendimento@suportemais.com</li><li>(85) 9 9760-4444</li><li><a href="https://www.instagram.com/suportemaisce/" target="_blank" rel="noopener">Instagram</a></li></ul></div>
     </div>
-    <div class="legal"><span>© 2026 S+ Suporte+. Todos os direitos reservados.</span><span>Fortaleza, Ceará</span></div>
+    <div class="legal"><span>© 2026 S+ Suporte+. Todos os direitos reservados. Fortaleza, Ceará</span><span class="devmais"><a href="https://devmais.com" target="_blank" rel="noopener" aria-label="Dev+"><img src="img/devmais-logo-dark.svg" alt="Dev+" height="20"></a>Desenvolvido por <a href="https://devmais.com" target="_blank" rel="noopener">Dev+</a></span></div>
   </div>
 </footer>
 
@@ -897,6 +939,28 @@ footer{padding-block:40px 32px}
     heroScroll();
   }
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+  // cabeçalho: sombra ao rolar, some ao descer e volta ao subir, indicador da seção ativa, menu no celular
+  var nav=document.getElementById('nav'),links=document.getElementById('navLinks'),ind=document.getElementById('navInd'),menuBtn=document.getElementById('menuBtn'),menu=document.getElementById('navMenu'),lastY=scrollY;
+  function navScroll(){
+    var y=scrollY;nav.classList.toggle('scrolled',y>20);
+    if(Math.abs(y-lastY)<4)return;
+    if(!nav.classList.contains('open')&&y>lastY&&y>innerHeight*.8)nav.classList.add('hide');
+    else if(y<lastY||y<innerHeight*.8)nav.classList.remove('hide');
+    lastY=y;
+  }
+  addEventListener('scroll',navScroll,{passive:true});navScroll();
+  function moveInd(a){if(!a){ind.style.opacity=0;links.querySelectorAll('a').forEach(function(x){x.classList.remove('on');});return;}
+    links.querySelectorAll('a').forEach(function(x){x.classList.toggle('on',x===a);});
+    ind.style.left=a.offsetLeft+'px';ind.style.width=a.offsetWidth+'px';ind.style.opacity=1;}
+  var secMap=[].map.call(links.querySelectorAll('a'),function(a){return{a:a,s:document.querySelector(a.getAttribute('href'))};}).filter(function(o){return o.s;});
+  function activeSec(){var mid=innerHeight*.4,hit=null;secMap.forEach(function(o){var r=o.s.getBoundingClientRect();if(r.top<=mid&&r.bottom>mid)hit=o.a;});moveInd(hit);}
+  addEventListener('scroll',function(){requestAnimationFrame(activeSec);},{passive:true});addEventListener('resize',activeSec);activeSec();
+  function setMenu(open){nav.classList.toggle('open',open);menu.hidden=!open;menuBtn.setAttribute('aria-expanded',open);menuBtn.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');if(open)nav.classList.remove('hide');}
+  menuBtn.addEventListener('click',function(){setMenu(menu.hidden);});
+  menu.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&!menu.hidden){setMenu(false);menuBtn.focus();}});
+  matchMedia('(min-width:1081px)').addEventListener('change',function(m){if(m.matches)setMenu(false);});
+
   topBtn.addEventListener('click',function(){scrollTo({top:0,behavior:reduce?'auto':'smooth'});var f=document.querySelector('.logo');if(f)f.focus({preventScroll:true});});
 
   // depoimentos
