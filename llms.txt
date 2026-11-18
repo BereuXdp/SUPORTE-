@@ -1,0 +1,50 @@
+# Suporte+ (S+)
+
+> Suporte+ é uma empresa de TI de Fortaleza (CE) especializada em operações gastronômicas. Cuida da infraestrutura, do suporte técnico 24/7 e da continuidade operacional de restaurantes, bares, dark kitchens e grupos com várias casas, para que caixa, cozinha e delivery não parem. Tem mais de 15 anos de mercado, mais de 63 clientes ativos e mais de 1.200 atendimentos.
+
+Atende Fortaleza e região, com suporte remoto e técnicos em campo. Também atende empresas de outros segmentos, como shopping, hotel, clínica, varejo e logística.
+
+## Página principal
+
+- [Suporte+ Restaurantes](https://suportemais.com/): página única com soluções, quem somos, clientes, depoimentos em vídeo, planos, serviços online, perguntas frequentes e contato.
+
+## Soluções
+
+- Monitoramento contínuo: acompanhamento de links, firewall, caixa e backup, agindo antes que a falha chegue ao salão.
+- Suporte técnico 24/7: remoto e presencial, com prioridade para ocorrências críticas no horário de pico.
+- Rede, Wi-Fi e links: padronização e contingência automática de internet para delivery e maquininhas.
+- PDV, TEF e impressão: frente de caixa, pagamentos e impressoras de produção.
+- Segurança e backup: firewall, controle de acessos e backup testável com caminho de recuperação.
+- Implantação: cabeamento estruturado, montagem de racks, câmeras, pontos de acesso Wi-Fi, PDV, impressoras e sistemas.
+
+## Como trabalha
+
+1. Diagnóstico inicial: mapeamento de equipamentos, rede, links, servidores, impressoras, sistemas e backup.
+2. Organização: documentação de infraestrutura, acessos, fornecedores, riscos e dependências.
+3. Monitoramento: atendimento de chamados e acompanhamento dos itens que afetam o salão.
+4. Melhoria contínua: identificação de reincidências e gargalos.
+
+## Planos
+
+Planos consultivos, definidos após o diagnóstico (sem preço público):
+
+- Essencial: suporte remoto, atendimento técnico, manutenção de computadores, apoio à rede e impressoras, registro de chamados.
+- Operação Segura: tudo do Essencial, mais backup gerenciado, monitoramento preventivo, documentação técnica, revisão de rede e Wi-Fi e relatório de ocorrências.
+- Continuidade 24/7 (recomendado): tudo do Operação Segura, mais atendimento 24/7, prioridade em ocorrências críticas, interface com fornecedores de software, gestão de itens críticos, plano de melhoria contínua e relatório executivo.
+
+## Serviços online (contratação avulsa, sem plano de suporte)
+
+- [E-mail profissional](https://suportemais.com/servicos-online/email-profissional): e-mails no domínio da empresa, com segurança e acesso de qualquer lugar.
+- [Telefonia VoIP](https://suportemais.com/servicos-online/telefonia-voip): central telefônica na nuvem para conectar unidades.
+- [Backup em nuvem](https://suportemais.com/servicos-online/backup-em-nuvem): backups automáticos, criptografados e monitorados.
+
+## Clientes
+
+Entre os clientes estão Grupo Ordones, Balcone Restô, Geppos Italiano, Mestre Sussa, Cabaña Del Primo, Moleska, Mezzi, Nucci, Cortile, Ponza, Rezza Cucina, Imprensa Food Square, Jardins Open Mall e Dayo Hotel.
+
+## Contato
+
+- WhatsApp: (85) 9 9760-4444 (https://wa.me/5585997604444)
+- E-mail: atendimento@suportemais.com
+- Instagram: https://www.instagram.com/suportemaisce/
+- Local: Fortaleza, Ceará. Atendimento 24h.
